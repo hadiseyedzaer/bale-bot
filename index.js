@@ -27,9 +27,12 @@ async function sendMessage(chat_id, text, keyboard) {
   
   const message = req.body.message;
   if (!message) return res.sendStatus(200); */
-  app.post("/webhook", (req, res) => {
+
+  app.post("/webhook", async (req, res) => {
   console.log("HIT");
-  res.sendStatus(200);});
+  
+  const message = req.body.message;
+  if (!message) return res.sendStatus(200);
 
   const chatId = message.chat.id;
   const text = message.text;
