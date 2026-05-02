@@ -24,6 +24,8 @@ async function sendMessage(chat_id, text, keyboard) {
 }
 
 app.post("/webhook", async (req, res) => {
+  console.log("UPDATE RECEIVED:", req.body);
+  
   const message = req.body.message;
   if (!message) return res.sendStatus(200);
 
