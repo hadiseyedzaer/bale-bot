@@ -7,7 +7,7 @@ app.use(express.json());
 
 const TOKEN = process.env.BOT_TOKEN;
 const BASE_URL = `https://tapi.bale.ai/bot${TOKEN}`;
-console.log("TOKEN:, TOKEN);
+console.log("TOKEN:", TOKEN);
 
 const users = {};
 
