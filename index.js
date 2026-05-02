@@ -7,8 +7,6 @@ app.use(express.json());
 
 const TOKEN = process.env.BOT_TOKEN;
 const BASE_URL = `https://tapi.bale.ai/bot${TOKEN}`;
-console.log("TOKEN:", TOKEN);
-
 const users = {};
 
 async function sendMessage(chat_id, text, keyboard) {
@@ -24,11 +22,14 @@ async function sendMessage(chat_id, text, keyboard) {
   await axios.post(`${BASE_URL}/sendMessage`, body);
 }
 
-app.post("/webhook", async (req, res) => {
+/*app.post("/webhook", async (req, res) => {
   console.log("UPDATE RECEIVED:", req.body);
   
   const message = req.body.message;
-  if (!message) return res.sendStatus(200);
+  if (!message) return res.sendStatus(200); */
+  app.post("/webhook", (req, res) => {
+  console.log("HIT");
+  res.sendStatus(200);});
 
   const chatId = message.chat.id;
   const text = message.text;
